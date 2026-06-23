@@ -11,6 +11,10 @@ class RunConfig(BaseModel):
     port: int = 8000
 
 
+class StoragePath(BaseModel):
+    programs = BASE_DIR / "uploads/programs"
+
+
 class Settings(BaseSettings):
     run: RunConfig = RunConfig()
 
