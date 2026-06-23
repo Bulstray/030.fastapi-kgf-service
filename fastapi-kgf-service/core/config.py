@@ -12,7 +12,7 @@ class RunConfig(BaseModel):
 
 
 class StoragePath(BaseModel):
-    programs = BASE_DIR / "uploads/programs"
+    programs: Path = BASE_DIR / "uploads/programs"
 
 
 class Settings(BaseSettings):
