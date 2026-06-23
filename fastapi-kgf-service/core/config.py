@@ -17,6 +17,7 @@ class StoragePath(BaseModel):
 
 class Settings(BaseSettings):
     run: RunConfig = RunConfig()
+    paths: StoragePath = StoragePath()
 
 
 settings = Settings()
