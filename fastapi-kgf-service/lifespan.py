@@ -3,7 +3,11 @@ from typing import AsyncIterator
 
 from fastapi import FastAPI
 
+from core.config import settings
+
 
 @asynccontextmanager
 def lifespan(app: FastAPI) -> AsyncIterator[None]:
-    pass
+    settings.paths.programs.mkdir(exist_ok=True, parents=True)
+
+    yield None
