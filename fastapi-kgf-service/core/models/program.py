@@ -1,9 +1,11 @@
 from .base import Base
 
+from .mixin.int_id_pk import IntIdPkMixin
+
 from sqlalchemy.orm import Mapped
 
 
-class Program(Base):
+class Program(IntIdPkMixin, Base):
     __tablename__ = "programs"
 
     name: Mapped[str]
