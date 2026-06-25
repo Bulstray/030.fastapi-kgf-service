@@ -1,8 +1,7 @@
-from .base import Base
-
-from .mixin.int_id_pk import IntIdPkMixin
-
 from sqlalchemy.orm import Mapped
+
+from .base import Base
+from .mixin.int_id_pk import IntIdPkMixin
 
 
 class Program(IntIdPkMixin, Base):
