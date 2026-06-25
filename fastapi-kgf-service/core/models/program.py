@@ -10,3 +10,6 @@ class Program(Base):
     description: Mapped[str]
     author: Mapped[str]
     size_file: Mapped[str]
+
+    path: Mapped[str]
+    original_name_file: Mapped[str]
