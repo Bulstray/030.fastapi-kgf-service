@@ -10,6 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class RestPrefix(BaseModel):
+    login: str = "/login"
     programs: str = "/programs"
 
 
