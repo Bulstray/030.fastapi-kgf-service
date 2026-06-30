@@ -1,7 +1,10 @@
 from pathlib import Path
 
-from pydantic import BaseModel, PostgresDsn, RedisDsn
+from pydantic import BaseModel, PostgresDsn, BeforeValidator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from typing import Annotated
+
+from utils.hash_password import hash_password
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,6 +44,14 @@ class DatabaseConfig(BaseModel):
     max_overflow: int = 10
 
 
+class SuperUser(BaseModel):
+    email: str
+    first_name: str
+    last_name: str
+    hashed_password: Annotated[str, BeforeValidator(hash_password)]
+    is_superuser: bool = True
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=(
@@ -56,6 +67,7 @@ class Settings(BaseSettings):
     rest_prefix: RestPrefix = RestPrefix()
     db: DatabaseConfig
     redis: RedisConfig
+    super_user: SuperUser
 
 
 settings = Settings()
