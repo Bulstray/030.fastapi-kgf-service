@@ -1,9 +1,10 @@
 from sqlalchemy.orm import Mapped
 
 from .base import Base
+from .mixin import IntIdPkMixin
 
 
-class User(Base):
+class User(IntIdPkMixin, Base):
     __tablename__ = "users"
 
     email: Mapped[str]
