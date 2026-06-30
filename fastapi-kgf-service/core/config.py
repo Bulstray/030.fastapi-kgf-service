@@ -48,7 +48,10 @@ class SuperUser(BaseModel):
     email: str
     first_name: str
     last_name: str
-    hashed_password: Annotated[str, BeforeValidator(hash_password)]
+    hashed_password: Annotated[
+        str,
+        BeforeValidator(hash_password),
+    ]
     is_superuser: bool = True
 
 
