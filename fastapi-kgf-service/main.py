@@ -1,10 +1,18 @@
 import uvicorn
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
-from core.config import settings
+from core.config import settings, BASE_DIR
 from app_lifespan import lifespan
 
 app = FastAPI(lifespan=lifespan)
+
+STATIC_PATH = BASE_DIR / "static"
+app.mount(
+    "/static",
+    StaticFiles(directory=STATIC_PATH),
+    name="static",
+)
 
 if __name__ == "__main__":
     uvicorn.run(
