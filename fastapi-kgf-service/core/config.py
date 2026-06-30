@@ -16,11 +16,16 @@ class RunConfig(BaseModel):
 
 
 class RedisAuthConfig(BaseModel):
-    deadline_seconds: int = 42000
+    lifetime_seconds: int = 42000
+
+
+class RedisConnectionConfig(BaseModel):
+    host: str
+    port: int
 
 
 class RedisConfig(BaseModel):
-    url: RedisDsn
+    connection: RedisConnectionConfig
     auth: RedisAuthConfig = RedisAuthConfig()
 
 
