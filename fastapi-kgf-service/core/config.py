@@ -6,14 +6,8 @@ from pydantic_settings import BaseSettings
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-class ApiV1Prefix:
-    prefix: str = "/v1"
+class RestPrefix(BaseModel):
     programs: str = "/programs"
-
-
-class ApiPrefix(BaseModel):
-    prefix: str = "/api"
-    v1: ApiV1Prefix = ApiV1Prefix()
 
 
 class RunConfig(BaseModel):
@@ -28,7 +22,7 @@ class StoragePath(BaseModel):
 class Settings(BaseSettings):
     run: RunConfig = RunConfig()
     paths: StoragePath = StoragePath()
-    api: ApiPrefix = ApiPrefix()
+    rest_prefix: RestPrefix = RestPrefix()
 
 
 settings = Settings()
