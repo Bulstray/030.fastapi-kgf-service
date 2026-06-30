@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% from "macro/navbar.html" import navbar with context %}
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block main %}
+  <div class="bg-dark min-vh-100">
+    {{ navbar() }}
+    <div class="container py-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-white mb-0">
+          <i class="bi bi-box-seam me-2"></i>Хранилище программ
+        </h1>
+      </div>
+
+      <div class="row g-4 mt-2">
+        <div class="card text-white bg-dark border-primary mb-3">
+          <div class="card-header">
+            <i class="bi bi-person-fill text-primary me-2"></i>
+            Автор: Хакимов Рамиль
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><i class="bi bi-file-pdf me-2"></i>WebToPDF</h4>
+
+            <p class="card-text mt-3"><i class="bi bi-card-text me-2"></i>Потоковая конвертация web страниц в PDF файл
+            </p>
+            <a href="#" class="btn btn-outline-primary me-2">
+              <i class="bi bi-download me-1"></i>Скачать
+            </a>
+            <button type="button" class="btn btn-outline-secondary me-1">
+              <i class="bi bi-info-circle me-1"></i>Инструкция
+            </button>
+            <span class="badge bg-secondary"><i class="bi bi-hdd-stack me-1"></i>123 MB</span>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4 mt-2">
+        <div class="card text-white bg-dark border-primary mb-3">
+          <div class="card-header">
+            <i class="bi bi-person-fill text-primary me-2"></i>
+            Автор: Хакимов Рамиль
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><i class="bi bi-file-pdf me-2"></i>WebToPDF</h4>
+
+            <p class="card-text mt-3"><i class="bi bi-card-text me-2"></i>Потоковая конвертация web страниц в PDF файл
+            </p>
+            <a href="#" class="btn btn-outline-primary me-2">
+              <i class="bi bi-download me-1"></i>Скачать
+            </a>
+            <button type="button" class="btn btn-outline-secondary me-1">
+              <i class="bi bi-info-circle me-1"></i>Инструкция
+            </button>
+            <span class="badge bg-secondary"><i class="bi bi-hdd-stack me-1"></i>123 MB</span>
+          </div>
+        </div>
+      </div>
+{% endblock %}
