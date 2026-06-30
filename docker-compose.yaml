@@ -2,7 +2,7 @@ services:
   pg:
     image: postgres
     environment:
-      POSTGRES_DB: booking
+      POSTGRES_DB: service_kgf
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     ports:
