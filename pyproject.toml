@@ -9,9 +9,14 @@ dependencies = [
     "asyncpg>=0.31.0",
     "bcrypt>=5.0.0",
     "fastapi[standard]>=0.138.0",
-    "mypy>=2.1.0",
     "pydantic-settings>=2.14.2",
-    "ruff>=0.15.18",
     "sqladmin>=0.27.2",
     "sqlalchemy>=2.0.51",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.5.1",
+    "mypy>=2.1.0",
+    "ruff>=0.15.20",
 ]
