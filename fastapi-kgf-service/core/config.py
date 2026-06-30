@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from pydantic import BaseModel, PostgresDsn
+from pydantic import BaseModel, PostgresDsn, RedisDsn
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,6 +13,15 @@ class RestPrefix(BaseModel):
 class RunConfig(BaseModel):
     host: str = "127.0.0.1"
     port: int = 8000
+
+
+class RedisAuthConfig(BaseModel):
+    deadline_seconds: int = 42000
+
+
+class RedisConfig(BaseModel):
+    url: RedisDsn
+    auth: RedisAuthConfig = RedisAuthConfig()
 
 
 class StoragePath(BaseModel):
@@ -41,6 +50,7 @@ class Settings(BaseSettings):
     paths: StoragePath = StoragePath()
     rest_prefix: RestPrefix = RestPrefix()
     db: DatabaseConfig
+    redis: RedisConfig
 
 
 settings = Settings()
